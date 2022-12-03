@@ -1,4 +1,4 @@
-<style>
+<!-- <style>
     .container-fluid {
         background-image: url(<?= BASEURL; ?>/img/background.png);
         background-size: cover;
@@ -8,8 +8,8 @@
         height: 90vh;
         width: 100%;
     }
-</style>
-<div class="container-fluid" style="color:white ;">   
+</style> -->
+<div class="container-fluid" style="color:white ; background-image: url(<?= BASEURL; ?>/img/background.png); background-size: cover; background-repeat: no-repeat; background-position: center; height: 90vh; width: 100%;">   
    <div class="row text-center">
     <h1 class="mt-5">Welcome To Booking Futsal Malang</h1>
     <span>breaks your limits finds the perfect futsal match</span>
