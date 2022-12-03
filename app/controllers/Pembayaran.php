@@ -16,9 +16,8 @@ class Pembayaran extends Controller
      *
      * @return void
      */
-    public function getPesanan()
+    public function getPesanan($idPesanan)
     {
-        $idPesanan = $_POST["idPesanan"];
         $data["judul"] = "Invoice Pembayaran";
         $data["pesanan"] = $this->model("Pesanan")->getPesananById($idPesanan);
         $this->view("templates/header", $data);
