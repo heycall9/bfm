@@ -1,20 +1,8 @@
-<!-- <style>
-    .container-fluid {
-        background-image: url(<?= BASEURL; ?>/img/background.png);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        
-        height: 90vh;
-        width: 100%;
-    }
-</style> -->
-<div class="container-fluid" style="color:white ; background-image: url(<?= BASEURL; ?>/img/background.png); background-size: cover; background-repeat: no-repeat; background-position: center; height: 90vh; width: 100%;">   
-   <div class="row text-center">
-    <h1 class="mt-5">Welcome To Booking Futsal Malang</h1>
-    <span>breaks your limits finds the perfect futsal match</span>
-   </div>
-   <div class="d-flex flex-row-reverse">
-    <button type="button" class="btn btn-primary" style="position: absolute; top: 600px;">Lihat Lapangan Futsal</button>
-   </div>
+<div class="container-fluid background-page" style="background-image: url('./img/layout/background.png') ;">
+    <div class="container text-center">
+        <p class="fs-1 text-light pt-5 mb-0" >Welcome To Booking Futsal Malang</p>
+        <p class="lead text-light pt-0">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eaque eligendi ex est, optio in odit velit maxime ab incidunt repudiandae officia modi officiis cum maiores corrupti voluptate non neque?
+        </p>
+    </div>  
 </div>

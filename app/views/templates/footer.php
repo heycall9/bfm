@@ -1,26 +1,39 @@
-<footer  style="background-color:#0086CF ; position:absolute; width: 100%; bottom:0px;">
-      <div class="container" >
-        <div class="d-md-flex bd-highlight pb-2">
-          <div class="p-2 flex-grow-1 bd-highlight">
-            <a href="" style="text-decoration: none; color:white">Kebijakan Privasi</a>
-            <a class="px-5" href="" style="text-decoration: none; color:white">Syarat & Ketentuan</a>
-            <a href="" style="text-decoration: none; color:white">Support</a>
-            <span class="px-5" style="color:white ;">Copyrigth &copy; 2022 BFM</span>
-          </div>
-
-          <div class="p-2 bd-highlight">
-            <div class="">
-              <img src="<?= BASEURL ?>/img/vector_fb.png" alt="" class="px-2" />
-              <img src="<?= BASEURL ?>/img/vector_linkedin.png" alt="" class="px-2" />
-              <img src="<?= BASEURL ?>/img/vector_twitter.png" alt="" class="px-2" />
-              <img src="<?= BASEURL ?>/img/vector_ig.png" alt="" class="px-2" />
+    <div class="container-fluid text-white p-3" style="background-color: #0086CF ;">
+        <div class="row justify-content-around text-center text-md-start">
+            <div class="col-md-2">
+                <a href="" class="text-decoration-none text-white">Kebijakan Privacy</a>
             </div>
-          </div>
+            <div class="col-md-2">
+                <a href="" class="text-decoration-none text-white">Syarat dan Ketentuan</a>
+            </div>
+            <div class="col-md-2">
+                <a href="" class="text-decoration-none text-white">Support</a>
+            </div>
+            <div class="col-md-2">
+                <a href="" class="text-decoration-none text-white">Kebijakan Privacy</a>
+            </div>
         </div>
-      </div>
-    </footer>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-<script src="<?= BASEURL ?>/js/bootstrap.js"></script>
-<script src="<?= BASEURL ?>/js/bootstrap.bundle.js"></script>
-</body>
-</html>
+        <hr>
+        <div class="row justify-content-around text-center text-md-center">
+            <div class="col-md-12">
+                <span class="align-middle">
+                    <img src="<?= BASEURL; ?>/img/layout/Group 33415.png" alt="">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <span class="align-middle ">
+                    &copy; 2022 Copyright BFM
+                </span>                
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="<?= BASEURL; ?>/js/bootstrap.js"></script>
+    <script src="<?= BASEURL; ?>/js/bootstrap.bundle.js"></script>
+    </body>
+
+    </html>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 class LapanganFutsal
 {
     private $db;
+    private $table = 'lapangan';
 
     public function __construct()
     {
@@ -29,6 +30,13 @@ class LapanganFutsal
         $this->db->query('SELECT jam_mulai, jam_selesai FROM jadwal WHERE id_lapangan = :id AND tanggal = :tanggal');
         $this->db->bind('id', $id);
         $this->db->bind('tanggal', $tanggal);
+        return $this->db->resultSet();
+    }
+
+    public function getAllLapanganById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' where id_pengelola=:id');
+        $this->db->bind('id', $id);
         return $this->db->resultSet();
     }
 }

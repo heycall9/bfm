@@ -33,7 +33,7 @@ class DataLapanganFutsal extends Controller
      * catatan:
      * bingung buat nanti submit jadwal bookingnya gimana
      */
-    public function detail($id, $tanggal = null)
+    public function detailJadwal($id, $tanggal = null)
     {
         $data['judul'] = 'Detail Lapangan Futsal';
         $data['lapangan'] = $this->model('LapanganFutsal')->getLapanganById($id);
@@ -52,7 +52,7 @@ class DataLapanganFutsal extends Controller
         $jadwalBuka = range($data['lapangan']['jam_buka'], $data['lapangan']['jam_tutup'] - 1);
         $data['lapangan']['jadwalBuka'] = $jadwalBuka;
         $this->view('templates/header', $data);
-        $this->view('dataLapanganFutsal/detail', $data);
+        $this->view('pemesanan/jadwal', $data);
         $this->view('templates/footer');
     }
 }
