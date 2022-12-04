@@ -1,6 +1,6 @@
 <?php
 
-// declare(strict_types=1);
+declare(strict_types=1);
 
 class Pesanan
 {
@@ -21,7 +21,7 @@ class Pesanan
      */
     public function getPesananById($idPesanan)
     {
-        $this->db->query('SELECT * FROM pesanan WHERE id = :idPesanan');
+        $this->db->query('SELECT * FROM pesanan WHERE id_pesanan = :idPesanan');
         $this->db->bind('idPesanan', $idPesanan);
         return $this->db->single();
     }
@@ -33,7 +33,7 @@ class Pesanan
      */
     public function setBukti($idPesanan, $bukti)
     {
-        $this->db->query('UPDATE pesanan SET bukti = :bukti WHERE id = :idPesanan');
+        $this->db->query('UPDATE pesanan SET bukti_pembayaran = :bukti WHERE id_pesanan = :idPesanan');
         $this->db->bind('idPesanan', $idPesanan);
         $this->db->bind('bukti', $bukti);
         $this->db->execute();
