@@ -5,7 +5,7 @@ class DataLapanganFutsal extends Controller
     public function index()
     {
         $data['judul'] = 'Data Lapangan Futsal';
-        $data['lapangan'] = $this->model('Lapangan_model')->getAllLapangan();
+        $data['lapangan'] = $this->model('LapanganFutsal')->getAllLapangan();
         $this->view('templates/header', $data);
         $this->view('dataLapanganFutsal/index', $data);
         $this->view('templates/footer');
@@ -36,13 +36,13 @@ class DataLapanganFutsal extends Controller
     public function detail($id, $tanggal = null)
     {
         $data['judul'] = 'Detail Lapangan Futsal';
-        $data['lapangan'] = $this->model('Lapangan_model')->getLapanganById($id);
+        $data['lapangan'] = $this->model('LapanganFutsal')->getLapanganById($id);
         if($tanggal == null) {
             $data['lapangan']['tanggal'] = date('Y-m-d');
         } else {
             $data['lapangan']['tanggal'] = date('Y-m-d', strtotime($tanggal));
         }
-        $jadwal = $this->model('Lapangan_model')->getJadwal($id, $data['lapangan']['tanggal']);
+        $jadwal = $this->model('LapanganFutsal')->getJadwal($id, $data['lapangan']['tanggal']);
         $jadwalBooked = [];
         foreach ($jadwal as $j) {
             $booked = range($j['jam_mulai'], $j['jam_selesai'] - 1);

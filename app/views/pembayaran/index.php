@@ -16,7 +16,8 @@ border-radius: 10px;
 }
 
 </style>
-<div class="container-fluid" style="color:white ; background-image: url(<?= BASEURL; ?>/img/background.png); background-size: cover;background-repeat: no-repeat; background-position: center; height: 90vh; width: 100%;">   
+<?php Flasher::flash(); ?>
+<div class="container-fluid" style="color:white ; background-image: url(<?= BASEURL ?>/img/background.png); background-size: cover;background-repeat: no-repeat; background-position: center; height: 90vh; width: 100%;">   
 <div class="container">
     <div class="row ">
         
@@ -25,22 +26,30 @@ border-radius: 10px;
             <h4 class="text-center" style="color:black ;">Selesaikan pesanan anda untuk dapat membooking lapangan!</h4>
         
             <div class="d-flex justify-content-center" style="color:black ;">
-            <form class="px-5">
+            <form class="px-5" method="post" enctype="multipart/form-data" action="<?= BASEURL ?>/Pembayaran/uploadBukti">
   
   <table class="mt-5">
       <tr class="">
-          <td><label for="inputPassword6" class="col-form-label">Biaya Booking : </label></td>
-          <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline"></td>
+          <td><label for="biayaBooking" class="col-form-label">Biaya Booking : </label></td>
+          <td><input type="text" id="biayaBooking" class="form-control mb-3" aria-describedby="biayaBooking" value="<?= $data[
+              "harga"
+          ] ?>" readonly disabled></td>
       </tr>
     </table>
-    <div class="input-group mt-4 mb-5">
-<input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-
-</div>
-  </form>
+    <tr>
+        <td><label for="inputGroupFile04" class="form-label">Foto bukti pembayaran:</label></td>
+    </tr>
+    <div class="input-group mt-0 mb-5">
+        <input type="file" class="form-control" name="fileBukti" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+    </div>
+    <input type="hidden" name="idPesanan" value="<?= $data["idPesanan"] ?>">
+    <div class="d-flex justify-content-center">
+        <!-- <button type="submit" class="btn btn-primary mb-5">Upload Bukti Pembayaran</button> -->
+        <input type="submit" class="btn btn-primary mb-5" value="Upload Bukti Pembayaran" name="submit">
+    </div>
+  </input>
         </div>
       </div>
           </div>
         </div>
 </div>
-

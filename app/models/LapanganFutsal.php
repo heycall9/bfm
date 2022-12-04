@@ -13,13 +13,13 @@ class LapanganFutsal
 
     public function getAllLapangan()
     {
-        $this->db->query('SELECT * FROM lapangan_futsal');
+        $this->db->query('SELECT * FROM lapangan');
         return $this->db->resultSet();
     }
 
     public function getLapanganById($id)
     {
-        $this->db->query('SELECT * FROM lapangan_futsal WHERE id = :id');
+        $this->db->query('SELECT * FROM lapangan WHERE id = :id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
