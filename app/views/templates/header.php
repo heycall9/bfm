@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="<?= BASEURL; ?>/css/style.css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <title> <?= $data['judul']; ?></title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg" style="background-color: #0086CF;">

@@ -29,20 +29,20 @@ border-radius: 10px;
   
 <table class="">
     <tr class="">
-        <td><label for="inputPassword6" class="col-form-label">Lapangan : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline"></td>
+        <td><label for="inputPassword6" class="col-form-label" >Lapangan : </label></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['lapangan']['deskripsi'] ?>" disabled></td>
     </tr>
     <tr>
         <td><label for="inputPassword6" class="col-form-label">Penyedia : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline"></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['lapangan']['nama_penyedia'] ?>" disabled></td>
     </tr>
     <tr>
         <td><label for="inputPassword6" class="col-form-label">Tanggal/Jam : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline"></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['tanggal'].' / '.$data['jam'] ?>" disabled></td>
     </tr>
     <tr>
         <td><label for="inputPassword6" class="col-form-label">Pemesan : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline"></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" disabled></td>
     </tr>
 </table>
 </form>

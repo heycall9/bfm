@@ -20,14 +20,16 @@ class LapanganFutsal
 
     public function getLapanganById($id)
     {
-        $this->db->query('SELECT * FROM lapangan WHERE id = :id');
+        $this->db->query('SELECT * FROM lapangan l
+        JOIN pengelola_lapangan_futsal p ON l.id_pengelola = p.id
+        WHERE l.id = :id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }
 
     public function getJadwal($id, $tanggal)
     {
-        $this->db->query('SELECT jam_mulai, jam_selesai FROM jadwal WHERE id_lapangan = :id AND tanggal = :tanggal');
+        $this->db->query('SELECT jam_mulai, jam_selesai FROM pesanan WHERE id_lapangan = :id AND tanggal = :tanggal');
         $this->db->bind('id', $id);
         $this->db->bind('tanggal', $tanggal);
         return $this->db->resultSet();

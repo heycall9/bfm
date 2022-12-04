@@ -35,9 +35,14 @@ class DataLapanganFutsal extends Controller
      */
     public function detailJadwal($id, $tanggal = null)
     {
+        if($_POST != null) {
+            $tanggal = $_POST['tanggal'];
+            header('Location: ' . BASEURL . '/DataLapanganFutsal/detailJadwal/' . $id . '/' . $tanggal);
+        }
+
         $data['judul'] = 'Detail Lapangan Futsal';
         $data['lapangan'] = $this->model('LapanganFutsal')->getLapanganById($id);
-        if($tanggal == null) {
+        if($tanggal == null || $tanggal == '') {
             $data['lapangan']['tanggal'] = date('Y-m-d');
         } else {
             $data['lapangan']['tanggal'] = date('Y-m-d', strtotime($tanggal));
@@ -49,10 +54,12 @@ class DataLapanganFutsal extends Controller
             $jadwalBooked = array_merge($jadwalBooked, $booked);
         }
         $data['lapangan']['jadwalBooked'] = $jadwalBooked;
+        $data['lapangan']['jam_buka'] = 9;
+        $data['lapangan']['jam_tutup'] = 21;
         $jadwalBuka = range($data['lapangan']['jam_buka'], $data['lapangan']['jam_tutup'] - 1);
         $data['lapangan']['jadwalBuka'] = $jadwalBuka;
         $this->view('templates/header', $data);
-        $this->view('pemesanan/jadwal', $data);
+        $this->view('lapangan/jadwal', $data);
         $this->view('templates/footer');
     }
 }
