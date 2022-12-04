@@ -36,7 +36,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
     var swiper = new Swiper(".slide-content", {
-        slidesPerView: 3,
+        slidesPerView: 5,
         spaceBetween: 25,
         loop: true,
         centerSlide: 'true',
@@ -61,6 +61,9 @@
             },
             950: {
                 slidesPerView: 3,
+            },
+            1080: {
+                slidesPerView: 4,
             },
         },
     });
