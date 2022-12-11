@@ -17,19 +17,6 @@ class DataLapanganFutsal extends Controller
      * @param int $id id lapangan futsal
      * @param string $tanggal tanggal yang dipilih
      *
-     * TODO: implementasi di frontend
-     * $data['lapangan']['jadwalBooked']: array yang berisi semua jam yang sudah di-book
-     * $data['lapangan']['jadwalBuka']: array yang berisi semua jam buka
-     *
-     * cara implementasi
-     * foreach($data['lapangan']['jadwalBuka'] as $jamBuka) {
-     *    if(in_array($jamBuka, $data['lapangan']['jadwalBooked'])) {
-     *    // tambilan jam yang sudah di-book
-     *    } else {
-     *    // tampilan jam yang belum di-book
-     *    }
-     * }
-     *
      * catatan:
      * bingung buat nanti submit jadwal bookingnya gimana
      */
@@ -58,6 +45,7 @@ class DataLapanganFutsal extends Controller
         $data['lapangan']['jam_tutup'] = 21;
         $jadwalBuka = range($data['lapangan']['jam_buka'], $data['lapangan']['jam_tutup'] - 1);
         $data['lapangan']['jadwalBuka'] = $jadwalBuka;
+        // var_dump($data['lapangan']);
         $this->view('templates/header', $data);
         $this->view('lapangan/jadwal', $data);
         $this->view('templates/footer');
