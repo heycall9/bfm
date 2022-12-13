@@ -19,7 +19,7 @@ badd +68 ~/.config/coc/extensions/node_modules/coc-snippets/Readme.md
 badd +1 ./
 badd +39 app/controllers/Pemesanan.php
 badd +43 app/views/lapangan/jadwal.php
-badd +45 app/controllers/DataLapanganFutsal.php
+badd +23 app/controllers/DataLapanganFutsal.php
 badd +1 app/models/Pemesan.php
 badd +1 app/models/Pesanan.php
 badd +24 /opt/lampp/htdocs/bfm/app/models/PengelolaLapanganFutsal.php
@@ -30,7 +30,7 @@ badd +124 ~/.config/coc/extensions/node_modules/coc-php-cs-fixer/README.md
 badd +1 output:///php-cs-fixer
 badd +18 ~/.dotfiles/nvim/.config/nvim/coc-settings.json
 badd +70 ~/.config/coc/extensions/node_modules/coc-php-cs-fixer/package.json
-badd +25 /opt/lampp/htdocs/bfm/app/controllers/Login.php
+badd +13 /opt/lampp/htdocs/bfm/app/controllers/Login.php
 badd +26 /opt/lampp/htdocs/bfm/app/models/Aktor.php
 badd +30 /opt/lampp/htdocs/bfm/app/models/LapanganFutsal.php
 badd +1 /opt/lampp/htdocs/bfm/app/controllers/Home.php
@@ -40,16 +40,17 @@ badd +1 /opt/lampp/htdocs/bfm/app/views/daftar-penyedia/daftarLapangan.php
 badd +13 /opt/lampp/htdocs/bfm/app/controllers/Register.php
 badd +4 /opt/lampp/htdocs/bfm/app/controllers/Dashboard.php
 badd +21 app/views/daftar-penyedia/index.php
-badd +41 app/views/templates/header.php
-badd +44 /opt/lampp/htdocs/bfm/app/views/login/index.php
+badd +35 app/views/templates/header.php
+badd +80 /opt/lampp/htdocs/bfm/app/views/login/index.php
 badd +7 app/core/Flasher.php
 badd +1 app/views/templates/footer.php
+badd +1 /opt/lampp/htdocs/bfm/.gitignore
 argglobal
 %argdel
 $argadd ./
-edit app/controllers/DataLapanganFutsal.php
+edit /opt/lampp/htdocs/bfm/.gitignore
 argglobal
-balt /opt/lampp/htdocs/bfm/app/models/LapanganFutsal.php
+balt app/views/templates/header.php
 setlocal fdm=syntax
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -58,12 +59,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal nofen
-let s:l = 23 - ((14 * winheight(0) + 21) / 43)
+let s:l = 1 - ((0 * winheight(0) + 21) / 43)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 23
-normal! 030|
+keepjumps 1
+normal! 011|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
