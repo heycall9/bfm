@@ -18,7 +18,11 @@
 
                     <div class="card-content">
                         <h2 class="name">Lapangan <?= $lapangan['id']; ?></h2>
+<<<<<<< HEAD
                         <a class=" btn btn-primary btn-sm" href="<?= BASEURL; ?>/kelolalapangan/jadwal/<?= $lapangan['id'] ?>">Lihat Jadwal</a>
+=======
+                        <a class=" btn btn-primary btn-sm" href="<?= BASEURL; ?>/DataLapanganFutsal/detailJadwal/<?= $lapangan['id']?>">Lihat Jadwal</a>
+>>>>>>> a7ab60fbb0c6549fa551e80b9a558de769b2b1c2
                     </div>
                 </div>
             <?php endforeach; ?>

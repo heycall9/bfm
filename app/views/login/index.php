@@ -41,6 +41,7 @@
     </style>
   </head>
   <body>
+<?= Flasher::flash() ?>
   <div class="container mt-5">
         
         <div class="row mt-3">
@@ -55,14 +56,14 @@
         <!-- awal main form login -->
         <div class="col-md-5 col-lg-5 col-sm-5 login mt-5 mx-auto">
           <h2 class="text-center col-md-12 pt-5" style="color: black; font-family: poppins, sans-serif; font-style: normal; font-weight: bold">Sign In</h2>
-          <form method="post" target="_self" class="col-md-8 col-lg-8 col-sm-8 mx-auto" id="form">
+          <form method="post" action="<?= BASEURL ?>/Login/login" class="col-md-8 col-lg-8 col-sm-8 mx-auto" id="form">
           <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Username / Email</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">

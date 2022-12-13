@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 04, 2022 at 01:13 PM
+-- Generation Time: Dec 13, 2022 at 09:51 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -42,8 +42,8 @@ CREATE TABLE `aktor` (
 --
 
 INSERT INTO `aktor` (`id`, `nama`, `username`, `password`, `alamat`, `usia`, `jenis_kelamin`) VALUES
-(1, 'pemesan 1', 'psn1', '213', 'alamtpsan1', 1, b'1'),
-(2, 'pengelola1', 'pll1', '123', 'almpl1', 2, b'0');
+(1, 'pemesan 1', 'pemesan1', '123', 'alamtpsan1', 1, b'1'),
+(2, 'pengelola1', 'pengelola1', '123', 'almpl1', 2, b'0');
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,8 @@ CREATE TABLE `pesanan` (
 --
 
 INSERT INTO `pesanan` (`id`, `id_pemesan`, `id_lapangan`, `tanggal`, `jam_mulai`, `jam_selesai`, `bukti`) VALUES
-(1, 1, 1, '2022-12-04', 9, 11, '1wawancara admin.jpeg');
+(1, 1, 1, '2022-12-04', 9, 11, '1wawancara admin.jpeg'),
+(2, 1, 1, '2022-12-13', 9, 11, '');
 
 --
 -- Indexes for dumped tables
@@ -198,7 +199,7 @@ ALTER TABLE `pengelola_lapangan_futsal`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
