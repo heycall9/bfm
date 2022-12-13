@@ -40,7 +40,7 @@
                 <h2 class="my-3"> Jadwal Tersedia </h2>
                 <div class="d-flex justify-content-center">
                 <div class="row d-flex mt-4 w-75">
-                <form action="<?= BASEURL ?>/Pemesanan/pesan/<?= $data['lapangan']['id'] ?>" class="" method="post">
+                <form action="<?= BASEURL ?>/Pemesanan/tampilanPemesanan/<?= $data['lapangan']['id'] ?>" class="" method="post">
                 <fieldset>
                         <?php foreach( $data['lapangan']['jadwalBuka'] as $jadwalBuka ): ?>
                             <?php if(in_array($jadwalBuka, $data['lapangan']['jadwalBooked'])): ?>

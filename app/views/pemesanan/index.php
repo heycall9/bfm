@@ -25,8 +25,7 @@ border-radius: 10px;
             <h4 class="text-center" style="color:black ;">Selesaikan pesanan anda untuk dapat membooking lapangan!</h4>
           <div class="row">
         <div class="col-md-6 col-lg-6 col-sm-6 mt-5" style="color:black ;">
-        <form class="px-5">
-  
+        <form class="px-5" action="<?= BASEURL?>/Pemesanan/buatPesanan/" method="post">
 <table class="">
     <tr class="">
         <td><label for="inputPassword6" class="col-form-label" >Lapangan : </label></td>
@@ -42,10 +41,10 @@ border-radius: 10px;
     </tr>
     <tr>
         <td><label for="inputPassword6" class="col-form-label">Pemesan : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" disabled></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['pemesan']['nama'] ?>" disabled></td>
     </tr>
 </table>
-</form>
+<!-- </form> -->
         </div>
         <!-- akhir main bagian kiri -->
 
@@ -56,7 +55,17 @@ border-radius: 10px;
         </div>
         <p>Lorem ipsum dolor sit amet. Et distinctio iure ut obcaecati tenetur est tempora quos aut earum voluptates. Et impedit dignissimos sit iure obcaecati ut expedita autem qui cumque sapiente </p>
         <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-primary mb-3">Confirm Book</button>
+        <input type="hidden" name="id_pemesan" value="
+            <?= 
+                // $_SESSION['id'] 
+                1
+            ?>
+            ">
+        <input type="hidden" name="id_lapangan" value="<?= $data['lapangan']['id'] ?>">
+        <input type="hidden" name="tanggal" value="<?= $data['tanggal'] ?>">
+        <input type="hidden" name="jam_mulai" value="<?= $data['jam_mulai'] ?>">
+        <input type="hidden" name="jam_selesai" value="<?= $data['jam_selesai'] ?>">
+        <button type="submit" class="btn btn-primary mb-3">Confirm Book</button>
         </div>     
     </div>
           </form>

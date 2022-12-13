@@ -9,9 +9,13 @@ class KelolaLapangan extends Controller{
         $this->view('templates/footer');
     }
 
-    public function daftarLapangan($id){
+    public function daftarLapangan($id = null){
         $data['judul'] = "Daftar Lapangan";
-        $data['lapangan'] = $this->model('LapanganFutsal')->getAllLapanganById($id);
+        if($id == null){
+            $data['lapangan'] = $this->model('LapanganFutsal')->getAllLapangan();
+        } else {
+            $data['lapangan'] = $this->model('LapanganFutsal')->getAllLapanganById($id);
+        }
         $this->view('templates/header',$data);
         $this->view('daftar-penyedia/daftarLapangan',$data);
         $this->view('templates/footer');
