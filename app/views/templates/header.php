@@ -36,7 +36,7 @@
       <div class="d-flex justify-content-center align-items-center">
 
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <?php if(!$_SESSION) : ?>
+        <?php if(!array_key_exists('id', $_SESSION)) : ?>
         <li class="nav-item">
           <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/Login">Login</a>
         </li>
