@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 class DataLapanganFutsal extends Controller
@@ -59,3 +60,5 @@ class DataLapanganFutsal extends Controller
         $this->view('templates/footer');
     }
 }
+=======
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6

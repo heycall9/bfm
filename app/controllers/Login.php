@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 class Login extends Controller{
@@ -36,3 +37,5 @@ class Login extends Controller{
         }
     }
 }
+=======
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6

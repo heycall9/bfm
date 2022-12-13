@@ -18,7 +18,10 @@ class Flasher
                     <strong>'. $_SESSION['flash']['pesan'] .'</strong> '. $_SESSION['flash']['aksi'] .'
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
+<<<<<<< HEAD
             unset($_SESSION['flash']);
+=======
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6
         }
     }
 }

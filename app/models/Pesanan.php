@@ -1,6 +1,6 @@
 <?php
 
-// declare(strict_types=1);
+declare(strict_types=1);
 
 class Pesanan
 {
@@ -21,8 +21,13 @@ class Pesanan
      */
     public function getPesananById($idPesanan)
     {
+<<<<<<< HEAD
         $this->db->query("SELECT * FROM pesanan WHERE id = :idPesanan");
         $this->db->bind("idPesanan", $idPesanan);
+=======
+        $this->db->query('SELECT * FROM pesanan WHERE id_pesanan = :idPesanan');
+        $this->db->bind('idPesanan', $idPesanan);
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6
         return $this->db->single();
     }
 
@@ -33,11 +38,17 @@ class Pesanan
      */
     public function setBukti($idPesanan, $bukti)
     {
+<<<<<<< HEAD
         $this->db->query(
             "UPDATE pesanan SET bukti = :bukti WHERE id = :idPesanan"
         );
         $this->db->bind("idPesanan", $idPesanan);
         $this->db->bind("bukti", $bukti);
+=======
+        $this->db->query('UPDATE pesanan SET bukti_pembayaran = :bukti WHERE id_pesanan = :idPesanan');
+        $this->db->bind('idPesanan', $idPesanan);
+        $this->db->bind('bukti', $bukti);
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6
         $this->db->execute();
         return $this->db->rowCount();
     }
