@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 02, 2022 at 11:49 AM
+-- Generation Time: Dec 13, 2022 at 09:51 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -34,8 +34,16 @@ CREATE TABLE `aktor` (
   `password` varchar(255) NOT NULL,
   `alamat` varchar(255) DEFAULT NULL,
   `usia` int(11) DEFAULT NULL,
-  `jenis_kelamin` tinyint(1) DEFAULT NULL
+  `jenis_kelamin` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `aktor`
+--
+
+INSERT INTO `aktor` (`id`, `nama`, `username`, `password`, `alamat`, `usia`, `jenis_kelamin`) VALUES
+(1, 'pemesan 1', 'pemesan1', '123', 'alamtpsan1', 1, b'1'),
+(2, 'pengelola1', 'pengelola1', '123', 'almpl1', 2, b'0');
 
 -- --------------------------------------------------------
 
@@ -47,9 +55,16 @@ CREATE TABLE `lapangan` (
   `id` int(11) NOT NULL,
   `id_pengelola` int(11) NOT NULL,
   `harga` int(11) NOT NULL,
-  `foto` varchar(255) NOT NULL,
-  `deskripsi` text NOT NULL
+  `foto` varchar(255) DEFAULT NULL,
+  `deskripsi` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lapangan`
+--
+
+INSERT INTO `lapangan` (`id`, `id_pengelola`, `harga`, `foto`, `deskripsi`) VALUES
+(1, 1, 100000, NULL, 'lapangan 1 sm');
 
 -- --------------------------------------------------------
 
@@ -61,6 +76,13 @@ CREATE TABLE `pemesan` (
   `id` int(11) NOT NULL,
   `id_aktor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pemesan`
+--
+
+INSERT INTO `pemesan` (`id`, `id_aktor`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -74,6 +96,13 @@ CREATE TABLE `pengelola_lapangan_futsal` (
   `nama_penyedia` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `pengelola_lapangan_futsal`
+--
+
+INSERT INTO `pengelola_lapangan_futsal` (`id`, `id_aktor`, `nama_penyedia`) VALUES
+(1, 2, 'SM');
+
 -- --------------------------------------------------------
 
 --
@@ -84,11 +113,19 @@ CREATE TABLE `pesanan` (
   `id` int(11) NOT NULL,
   `id_pemesan` int(11) NOT NULL,
   `id_lapangan` int(11) NOT NULL,
-  `taggal` date NOT NULL,
-  `jam_mulai` time NOT NULL,
-  `jam_selesai` time NOT NULL,
-  `bukti` varchar(255) NOT NULL
+  `tanggal` date NOT NULL,
+  `jam_mulai` int(11) NOT NULL,
+  `jam_selesai` int(11) NOT NULL,
+  `bukti` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id`, `id_pemesan`, `id_lapangan`, `tanggal`, `jam_mulai`, `jam_selesai`, `bukti`) VALUES
+(1, 1, 1, '2022-12-04', 9, 11, '1wawancara admin.jpeg'),
+(2, 1, 1, '2022-12-13', 9, 11, '');
 
 --
 -- Indexes for dumped tables
@@ -138,31 +175,31 @@ ALTER TABLE `pesanan`
 -- AUTO_INCREMENT for table `aktor`
 --
 ALTER TABLE `aktor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pemesan`
 --
 ALTER TABLE `pemesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pengelola_lapangan_futsal`
 --
 ALTER TABLE `pengelola_lapangan_futsal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

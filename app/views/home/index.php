@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+<?= Flasher::flash()?>
+<div class="container-fluid background-page" style="background-image: url('./img/layout/background.png') ;">
+    <div class="container text-center">
+        <p class="fs-1 text-light pt-5 mb-0" >Welcome To Booking Futsal Malang</p>
+        <p class="lead text-light pt-0">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem eaque eligendi ex est, optio in odit velit maxime ab incidunt repudiandae officia modi officiis cum maiores corrupti voluptate non neque?
+        </p>
+    </div>  
+</div>
+=======
 <div class="container">   
     <div class="desciption w-75">
         <div class="jumbotron mt-5">
@@ -25,3 +36,4 @@
             </div>
     </div>
 </div>
+>>>>>>> 4c0a59e2b751617aa1676b45754a7af4f1baefb6
