@@ -1,3 +1,4 @@
+<?= Flasher::flash()?>
 <div class="container-fluid background-page" style="background-image: url('./img/layout/background.png') ;">
     <div class="container text-center">
         <p class="fs-1 text-light pt-5 mb-0" >Welcome To Booking Futsal Malang</p>

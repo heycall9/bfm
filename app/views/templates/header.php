@@ -26,12 +26,31 @@
           <a class="nav-link active text-light" aria-current="page" href="<?= BASEURL;?>">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/kelolalapangan">Daftar Lapangan</a>
+          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/KelolaLapangan">Daftar Lapangan</a>
         </li>
       </ul>
-      <a class="d-flex" role="button">
-        <img class="img-fluid" src="<?= BASEURL; ?>/img/layout/akun.png" alt="">
+      <div class="d-flex justify-content-center align-items-center">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <?php if(!$_SESSION) : ?>
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/Login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/Register">Register</a>
+        </li>
+        <?php else : ?>
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/Logout">Logout</a>
+        </li>
+        <?php endif; ?>
+      </ul>
+      <a class="ms-2" role="button">
+        <img class="" style="" src="<?= BASEURL; ?>/img/layout/akun.png" alt="">
       </a>
+      </div>
     </div>
   </div>
 </nav>
+
+<!-- <?php var_dump($_SESSION); ?> -->
