@@ -18,6 +18,13 @@ class LapanganFutsal
         return $this->db->resultSet();
     }
 
+    public function getAllLapanganById($id)
+    {
+        $this->db->query('SELECT * FROM ' . $this->table . ' where id_pengelola=:id');
+        $this->db->bind('id', $id);
+        return $this->db->resultSet();
+    }
+
     public function getLapanganById($id)
     {
         $this->db->query('SELECT * FROM lapangan l
@@ -35,11 +42,5 @@ class LapanganFutsal
         return $this->db->resultSet();
     }
 
-    public function getAllLapanganById($id)
-    {
-        $this->db->query('SELECT * FROM ' . $this->table . ' where id_pengelola=:id');
-        $this->db->bind('id', $id);
-        return $this->db->resultSet();
-    }
 }
 
