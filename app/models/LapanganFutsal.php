@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-class LapanganFutsal
-{
+class LapanganFutsal {
     private $db;
     private $table = 'lapangan';
 
@@ -27,7 +26,7 @@ class LapanganFutsal
         return $this->db->single();
     }
 
-    public function getJadwal($id, $tanggal)
+    public function getJadwal($id, $tanggal = null)
     {
         $this->db->query('SELECT jam_mulai, jam_selesai FROM pesanan WHERE id_lapangan = :id AND tanggal = :tanggal');
         $this->db->bind('id', $id);
