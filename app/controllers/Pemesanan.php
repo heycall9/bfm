@@ -49,4 +49,36 @@ class Pemesanan extends Controller
             Flasher::setFlash('Gagal', 'Pesanan gagal ditambahkan', 'danger');
         }
     }
+
+    public function daftarPesanan()
+    {
+        $data['judul'] = 'Daftar Pesanan';
+        $data['pesanan'] = $this->model('Pesanan')->daftarPesananByIdPengelola($_SESSION['id_pengelola']);
+        $this->view('templates/header', $data);
+        $this->view('dashboard/tampilan-mengelola-pesanan', $data);
+        $this->view('templates/footer');
+    }
+
+    public function kelolaPesanan($id)
+    {
+        $data['judul'] = 'Detail Pesanan';
+        $data['pesanan'] = $this->model('Pesanan')->getPesananById($id);
+        // $data['lapangan'] = $this->model('LapanganFutsal')->getLapanganById($data['pesanan']['id_lapangan']);
+        // $data['pemesan'] = $this->model('Pemesan')->getPemesanById($data['pesanan']['id_pemesan']);
+        // var_dump($data);
+        $this->view('templates/header', $data);
+        $this->view('dashboard/tampilan-detail-pesanan', $data);
+        $this->view('templates/footer');
+    }
+
+    public function acceptPesanan($id)
+    {
+        if ($this->model('Pesanan')->acceptPesanan($id) > 0) {
+            Flasher::setFlash('Berhasil', 'Pesanan berhasil diterima', 'success');
+            header('Location: '.BASEURL.'/Pemesanan/kelolaPesanan/'.$id);
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'Pesanan gagal diterima', 'danger');
+        }
+    }
 }

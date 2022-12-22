@@ -48,7 +48,7 @@ class Pesanan
 
         if($_POST){
             $query =
-                "INSERT INTO pesanan VALUES (NULL, :id_pemesan, :id_lapangan, :tanggal, :jam_mulai, :jam_selesai, '')";
+                "INSERT INTO pesanan VALUES (NULL, :id_pemesan, :id_lapangan, :tanggal, :jam_mulai, :jam_selesai, '', 0)";
             $this->db->query($query);
             $this->db->bind("id_pemesan", $_POST['id_pemesan']);
             $this->db->bind("id_lapangan", $_POST['id_lapangan']);
@@ -61,5 +61,27 @@ class Pesanan
             return $this->db->lastInsertId();
         }
 
+    }
+
+    public function daftarPesananByIdPengelola($idPengelola)
+    {
+        $this->db->query(
+            "SELECT *, p.id as id_pesanan, l.id as id_lapangan, p.id_pemesan as id_pemesan, pl.id as id_pengelola, a.nama as nama_aktor, l.nama as nama_lapangan FROM pesanan p
+            JOIN lapangan l ON p.id_lapangan = l.id
+            JOIN pengelola_lapangan_futsal pl ON l.id_pengelola = pl.id
+            JOIN aktor a ON p.id_pemesan = a.id
+            WHERE pl.id = $idPengelola"
+        );
+        return $this->db->resultSet();
+    }
+
+    public function acceptPesanan($idPesanan)
+    {
+        $this->db->query(
+            "UPDATE pesanan SET terkonfirmasi = 1 WHERE id = :idPesanan"
+        );
+        $this->db->bind("idPesanan", $idPesanan);
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 }

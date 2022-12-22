@@ -16,6 +16,7 @@ class KelolaLapangan extends Controller{
         } else {
             $data['lapangan'] = $this->model('LapanganFutsal')->getAllLapanganById($id);
         }
+        // var_dump($data);
         $this->view('templates/header',$data);
         $this->view('daftar-penyedia/daftarLapangan',$data);
         $this->view('templates/footer');

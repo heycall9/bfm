@@ -22,12 +22,21 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <?php if( array_key_exists('role', $_SESSION) && $_SESSION['role'] == 'pengelola') : ?>
+        <li class="nav-item">
+          <a class="nav-link active text-light" aria-current="page" href="<?= BASEURL;?>/Dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/Pemesanan/daftarPesanan">Daftar Pesanan</a>
+        </li>
+        <?php else : ?>
         <li class="nav-item">
           <a class="nav-link active text-light" aria-current="page" href="<?= BASEURL;?>">Beranda</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-light" aria-current="page" href="<?= BASEURL;?>/KelolaLapangan">Daftar Lapangan</a>
         </li>
+        <?php endif; ?>
       </ul>
       <div class="d-flex justify-content-center align-items-center">
 

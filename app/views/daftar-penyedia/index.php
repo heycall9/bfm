@@ -18,7 +18,7 @@
 
                     <div class="card-content">
                         <h2 class="name"><?= $penyedia['nama_penyedia'] ?></h2>
-                        <a class=" btn btn-primary btn-sm" href="<?= BASEURL; ?>/KelolaLapangan/daftarLapangan/<?= $penyedia['id']?>">Pilih
+                        <a class=" btn btn-primary btn-sm" href="<?= BASEURL; ?>/KelolaLapangan/daftarLapangan/<?= $penyedia['id_aktor']?>">Pilih
                             Lapangan</a>
                     </div>
                 </div>

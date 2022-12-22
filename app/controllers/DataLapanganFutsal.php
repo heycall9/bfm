@@ -58,4 +58,64 @@ class DataLapanganFutsal extends Controller
         $this->view('lapangan/jadwal', $data);
         $this->view('templates/footer');
     }
+
+    public function formTambahLapangan()
+    {
+        $data['judul'] = 'Tambah Lapangan Futsal';
+        $this->view('templates/header', $data);
+        $this->view('dashboard/tampilan-kelola-lapangan', $data);
+        $this->view('templates/footer');
+    }
+
+    public function tambahLapangan()
+    {
+        if ($this->model('LapanganFutsal')->insert($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'Lapangan berhasil ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/Dashboard');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'Lapangan gagal ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/DataLapanganFutsal/formTambahLapangan');
+            exit;
+        }
+    }
+
+    public function formEditLapangan($id)
+    {
+        $data['judul'] = 'Edit Lapangan Futsal';
+        $data['lapangan'] = $this->model('LapanganFutsal')->getLapanganById($id);
+        // var_dump($data['lapangan']);
+        $this->view('templates/header', $data);
+        $this->view('dashboard/tampilan-kelola-lapangan', $data);
+        $this->view('templates/footer');
+    }
+
+    public function editLapangan()
+    {
+        // var_dump($_POST);
+        // var_dump($this->model('LapanganFutsal')->update($_POST));
+        if ($this->model('LapanganFutsal')->update($_POST) > 0) {
+            Flasher::setFlash('Berhasil', 'Lapangan berhasil diubah', 'success');
+            header('Location: ' . BASEURL . '/Dashboard');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'Lapangan gagal diubah', 'danger');
+            header('Location: ' . BASEURL . '/DataLapanganFutsal/formEditLapangan/' . $_POST['id']);
+            exit;
+        }
+    }
+
+    public function deleteLapangan($id)
+    {
+        if ($this->model('LapanganFutsal')->delete($id) > 0) {
+            Flasher::setFlash('Berhasil', 'Lapangan berhasil dihapus', 'success');
+            header('Location: ' . BASEURL . '/Dashboard');
+            exit;
+        } else {
+            Flasher::setFlash('Gagal', 'Lapangan gagal dihapus', 'danger');
+            header('Location: ' . BASEURL . '/Dashboard');
+            exit;
+        }
+    }
+
 }

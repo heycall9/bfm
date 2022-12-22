@@ -29,7 +29,7 @@ border-radius: 10px;
 <table class="">
     <tr class="">
         <td><label for="inputPassword6" class="col-form-label" >Lapangan : </label></td>
-        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['lapangan']['deskripsi'] ?>" disabled></td>
+        <td><input type="text" id="inputPassword6" class="form-control mb-3" aria-describedby="passwordHelpInline" value="<?= $data['lapangan']['nama'] ?>" disabled></td>
     </tr>
     <tr>
         <td><label for="inputPassword6" class="col-form-label">Penyedia : </label></td>
@@ -53,7 +53,7 @@ border-radius: 10px;
         <div class="d-flex justify-content-center">
             <img src="<?= BASEURL; ?>/img/lapangan.png" alt="" height="250px">
         </div>
-        <p>Lorem ipsum dolor sit amet. Et distinctio iure ut obcaecati tenetur est tempora quos aut earum voluptates. Et impedit dignissimos sit iure obcaecati ut expedita autem qui cumque sapiente </p>
+        <p><?= $data['lapangan']['deskripsi']?></p>
         <div class="d-flex justify-content-end">
         <input type="hidden" name="id_pemesan" value="
             <?= 
@@ -65,6 +65,7 @@ border-radius: 10px;
         <input type="hidden" name="tanggal" value="<?= $data['tanggal'] ?>">
         <input type="hidden" name="jam_mulai" value="<?= $data['jam_mulai'] ?>">
         <input type="hidden" name="jam_selesai" value="<?= $data['jam_selesai'] ?>">
+        <input type="hidden" name="terkonfirmasi" value="0">
         <button type="submit" class="btn btn-primary mb-3">Confirm Book</button>
         </div>     
     </div>

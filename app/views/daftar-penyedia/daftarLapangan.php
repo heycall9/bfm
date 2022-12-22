@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="card-content">
-                        <h2 class="name">Lapangan <?= $lapangan['id']; ?></h2>
+                        <h2 class="name"><?= $lapangan['nama']; ?></h2>
                         <a class=" btn btn-primary btn-sm" href="<?= BASEURL; ?>/DataLapanganFutsal/detailJadwal/<?= $lapangan['id']?>">Lihat Jadwal</a>
                     </div>
                 </div>

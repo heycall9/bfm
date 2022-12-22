@@ -70,4 +70,9 @@ class Database{
     {
         return $this->dbh->lastInsertId();
     }
+
+    public function error()
+    {
+        return $this->stmt->errorInfo();
+    }
 }
