@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 13, 2022 at 09:51 AM
+-- Generation Time: Dec 22, 2022 at 12:56 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -54,6 +54,7 @@ INSERT INTO `aktor` (`id`, `nama`, `username`, `password`, `alamat`, `usia`, `je
 CREATE TABLE `lapangan` (
   `id` int(11) NOT NULL,
   `id_pengelola` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL,
   `foto` varchar(255) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL
@@ -63,8 +64,8 @@ CREATE TABLE `lapangan` (
 -- Dumping data for table `lapangan`
 --
 
-INSERT INTO `lapangan` (`id`, `id_pengelola`, `harga`, `foto`, `deskripsi`) VALUES
-(1, 1, 100000, NULL, 'lapangan 1 sm');
+INSERT INTO `lapangan` (`id`, `id_pengelola`, `nama`, `harga`, `foto`, `deskripsi`) VALUES
+(2, 1, 'lap 2', 50, '', '');
 
 -- --------------------------------------------------------
 
@@ -116,16 +117,17 @@ CREATE TABLE `pesanan` (
   `tanggal` date NOT NULL,
   `jam_mulai` int(11) NOT NULL,
   `jam_selesai` int(11) NOT NULL,
-  `bukti` varchar(255) DEFAULT NULL
+  `bukti` varchar(255) DEFAULT NULL,
+  `terkonfirmasi` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `pesanan`
 --
 
-INSERT INTO `pesanan` (`id`, `id_pemesan`, `id_lapangan`, `tanggal`, `jam_mulai`, `jam_selesai`, `bukti`) VALUES
-(1, 1, 1, '2022-12-04', 9, 11, '1wawancara admin.jpeg'),
-(2, 1, 1, '2022-12-13', 9, 11, '');
+INSERT INTO `pesanan` (`id`, `id_pemesan`, `id_lapangan`, `tanggal`, `jam_mulai`, `jam_selesai`, `bukti`, `terkonfirmasi`) VALUES
+(4, 1, 2, '2022-12-16', 9, 11, '4kitten.png', b'1'),
+(5, 1, 2, '2022-12-16', 11, 13, '5kitten.png', b'1');
 
 --
 -- Indexes for dumped tables
@@ -143,7 +145,7 @@ ALTER TABLE `aktor`
 --
 ALTER TABLE `lapangan`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pengelola` (`id_pengelola`);
+  ADD KEY `lapangan_ibfk_1` (`id_pengelola`);
 
 --
 -- Indexes for table `pemesan`
@@ -164,7 +166,7 @@ ALTER TABLE `pengelola_lapangan_futsal`
 --
 ALTER TABLE `pesanan`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_pemesan` (`id_pemesan`),
+  ADD KEY `pesanan_ibfk_1` (`id_pemesan`),
   ADD KEY `pesanan_ibfk_2` (`id_lapangan`);
 
 --
@@ -181,7 +183,7 @@ ALTER TABLE `aktor`
 -- AUTO_INCREMENT for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pemesan`
@@ -199,7 +201,7 @@ ALTER TABLE `pengelola_lapangan_futsal`
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
@@ -209,7 +211,7 @@ ALTER TABLE `pesanan`
 -- Constraints for table `lapangan`
 --
 ALTER TABLE `lapangan`
-  ADD CONSTRAINT `lapangan_ibfk_1` FOREIGN KEY (`id_pengelola`) REFERENCES `pengelola_lapangan_futsal` (`id`);
+  ADD CONSTRAINT `lapangan_ibfk_1` FOREIGN KEY (`id_pengelola`) REFERENCES `pengelola_lapangan_futsal` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `pemesan`
@@ -227,8 +229,8 @@ ALTER TABLE `pengelola_lapangan_futsal`
 -- Constraints for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_pemesan`) REFERENCES `pemesan` (`id`),
-  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id`);
+  ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_pemesan`) REFERENCES `pemesan` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_lapangan`) REFERENCES `lapangan` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

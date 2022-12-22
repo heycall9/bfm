@@ -20,7 +20,7 @@ class Aktor
      */
     public function validasi($username, $password)
     {
-        $this->db->query('SELECT a.id, a.nama, a.username, p.nama_penyedia
+        $this->db->query('SELECT a.id, a.nama, a.username, p.nama_penyedia, p.id as id_pengelola
             FROM aktor a 
             LEFT JOIN pengelola_lapangan_futsal p ON a.id = p.id_aktor
             WHERE a.username = :username AND a.password = :password');
